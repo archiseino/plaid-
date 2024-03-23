@@ -1,4 +1,6 @@
 repositories {
+    google()
+    mavenCentral()
     maven {
         url "https://maven.google.com"
         content {
@@ -11,6 +13,7 @@ repositories {
             includeGroup "com.google.android.material"
             includeGroup "com.google.gms"
             includeGroup "zipflinger"
+            includeGroup "com.google.testing.platform"
         }
     }
 

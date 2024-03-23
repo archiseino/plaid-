@@ -30,7 +30,8 @@
         <activity
             android:name=".ui.SearchActivity"
             android:launchMode="singleTop"
-            android:theme="@style/Plaid.Translucent.Search">
+            android:theme="@style/Plaid.Translucent.Search"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>

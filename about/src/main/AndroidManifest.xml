@@ -30,7 +30,8 @@
     <activity
         android:name="io.plaidapp.about.ui.AboutActivity"
         android:theme="@style/Plaid.Translucent.About"
-        android:parentActivityName="io.plaidapp.ui.HomeActivity">
+        android:parentActivityName="io.plaidapp.ui.HomeActivity"
+        android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.VIEW" />
         </intent-filter>
