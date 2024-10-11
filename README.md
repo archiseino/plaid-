@@ -10,6 +10,21 @@ Rewriting Plaid using [Android Architecture Components](https://developer.androi
 
 [![CircleCI](https://circleci.com/gh/android/plaid/tree/master.svg?style=shield)](https://circleci.com/gh/android/plaid/tree/master)
 
+## The project is stuck, All api seems dead so not any content is loaded
+Notes: Just wait until Plaid 2.0 is arrived so you are not wasting any time config this legacy code. Don't be like me
+
+Config Build
+- Android Studio Ladybug (2024)
+- Android Gradle Version (8.1)
+- Gradle Version (8.1)
+- JVM Target and Compile Java 17
+
+For those of you who wants to build this from the owner's repo
+Just upgrade the `spotless` version to the latest (it will change the name of the plugin and the dependencies), remove the plugin `kotlin-android-extension` (deprecated) parts from build gradle for each `module` and adding `kotlin-parcelize` in some module (you will know will one will require some Parcelize). And lastly try to update the AGP and Gradle using AGP Upgrade Assistance to the 8.1, because this is the sweet spot as I'm certain.
+
+At the end, just don't fork and try to build the plaid project, just wait until the 2.0 is done. So you don't have to suffer just like me
+
+
 ### Background
 
 Plaid was written with one big goal: showcase material design in Android in a real application. While Plaid successfully achieved its goal, from an architecture point of view, it lacks all features that would make it a modular, scalable, testable and maintainable app: with UI logic in Android classes, no tests and only one module. 

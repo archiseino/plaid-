@@ -16,8 +16,9 @@
 
 apply plugin: 'com.android.dynamic-feature'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: "kotlin-parcelize"
+
 
 apply from: '../shared_dependencies.gradle'
 apply from: '../test_dependencies.gradle'
@@ -27,8 +28,7 @@ android {
 
     defaultConfig {
         minSdkVersion versions.minSdk
-        targetSdkVersion versions.targetSdk
-        resConfig 'en'
+        resourceConfigurations += ['en']
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
@@ -44,12 +44,18 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
+    }
+    namespace 'io.plaidapp.designernews'
+    packaging {
+        jniLibs {
+            useLegacyPackaging false
+        }
     }
 }
 
@@ -64,9 +70,4 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}"
 
     kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
-}
-
-// enabling experimental for Kotlin parcelize supports
-androidExtensions {
-    experimental = true
 }

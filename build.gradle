@@ -35,11 +35,11 @@ buildscript { scriptHandler ->
             'fabric'             : '1.28.0',
             'firebase'           : '17.0.0',
             'glide'              : '4.9.0',
-            'googleServices'     : '4.3.0',
+            'googleServices'     : '4.3.10',
             'gson'               : '2.8.5',
             'jsoup'              : '1.11.3',
             'junit'              : '4.12',
-            'kotlin'             : '1.6.21',
+            'kotlin'             : '1.8.20',
             'ktlint'             : '0.36.0',
             'legacyCoreUtils'    : '1.0.0',
             'lifecycle'          : '2.2.0-alpha03',
@@ -60,7 +60,7 @@ buildscript { scriptHandler ->
     ]
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.0'
+        classpath 'com.android.tools.build:gradle:8.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
         classpath "com.google.gms:google-services:${versions.googleServices}"
         classpath "io.fabric.tools:gradle:${versions.fabric}"
@@ -68,7 +68,7 @@ buildscript { scriptHandler ->
 }
 
 plugins {
-    id 'com.diffplug.gradle.spotless' version '3.26.1'
+    id 'com.diffplug.spotless' version '6.25.0'
 }
 
 ext {
@@ -82,7 +82,7 @@ subprojects {
         apply from: rootProject.file('repositories.gradle')
     }
 
-    apply plugin: 'com.diffplug.gradle.spotless'
+    apply plugin: 'com.diffplug.spotless'
     spotless {
         kotlin {
             target '**/*.kt'

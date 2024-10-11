@@ -16,8 +16,8 @@
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: "kotlin-parcelize"
 
 apply from: '../shared_dependencies.gradle'
 apply from: '../test_dependencies.gradle'
@@ -56,17 +56,20 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
+    }
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/core_debug.kotlin_module']
+        }
     }
 
-    packagingOptions {
-        exclude 'META-INF/core_debug.kotlin_module'
-    }
+    namespace 'io.plaidapp.core'
 }
 
 dependencies {
@@ -88,6 +91,3 @@ dependencies {
     kapt "androidx.annotation:annotation:${versions.androidx}"
 }
 
-androidExtensions {
-    experimental = true
-}

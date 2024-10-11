@@ -23,13 +23,20 @@ android {
     defaultConfig {
         minSdkVersion 23
         targetSdkVersion versions.targetSdk
-        versionCode 1
-        versionName '1.0'
     }
     buildTypes {
         release {
             minifyEnabled false
         }
+    }
+    namespace 'in.uncod.android.bypass'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
     }
 }
 

@@ -35,7 +35,7 @@ class HomeViewModelFactory @Inject constructor(
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass != HomeViewModel::class.java) {
             throw IllegalArgumentException("Unknown ViewModel class")
         }

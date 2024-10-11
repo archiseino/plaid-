@@ -17,7 +17,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 apply from: '../shared_dependencies.gradle'
@@ -35,8 +34,8 @@ android {
         archivesBaseName = 'plaid'
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        resourceConfigurations += ['en']
 
-        resConfig 'en'
         manifestPlaceholders += [
             crashlyticsEnabled: false
         ]
@@ -62,12 +61,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 
     dynamicFeatures = [
@@ -76,6 +75,12 @@ android {
         ':dribbble',
         ':search'
     ]
+    namespace 'io.plaidapp'
+    packaging {
+        jniLibs {
+            useLegacyPackaging false
+        }
+    }
 }
 
 dependencies {

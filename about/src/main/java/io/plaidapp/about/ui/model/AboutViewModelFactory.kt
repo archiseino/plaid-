@@ -33,7 +33,7 @@ class AboutViewModelFactory @Inject constructor(
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass != AboutViewModel::class.java) {
             throw IllegalArgumentException("Unknown ViewModel class")
         }

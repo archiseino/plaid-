@@ -17,8 +17,7 @@
 
 <manifest
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:installLocation="auto"
-        package="io.plaidapp">
+        android:installLocation="auto">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -28,8 +27,7 @@
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:supportsRtl="true"
-            android:extractNativeLibs="false"
-            android:appCategory="image"
+        android:appCategory="image"
             android:name=".ui.PlaidApplication"
             android:theme="@style/Plaid">
 

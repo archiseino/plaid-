@@ -25,7 +25,8 @@ import androidx.lifecycle.Observer
  * [onEventUnconsumedContent] is *only* called if the [Event]'s contents has not been consumed.
  */
 class EventObserver<T>(private val onEventUnconsumedContent: (T) -> Unit) : Observer<Event<T>> {
-    override fun onChanged(event: Event<T>?) {
-        event?.consume()?.run(onEventUnconsumedContent)
+
+    override fun onChanged(value: Event<T>) {
+        value.consume()?.run(onEventUnconsumedContent)
     }
 }
